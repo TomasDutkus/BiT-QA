@@ -1,20 +1,30 @@
 .container {
-    width: 100%;
+  width: 100%;
 }
 
 .column {
-    width: 30%;
-    float: left;
-    margin: 1.5%;
+  width: 30%;
+  float: left;
+  margin: 1.5%;
 }
 
 .image {
-    width: 100%;
+  width: 100%;
 }
 
 .card {
-    border: 1px solid black;
-    margin-bottom: 20px;
-    padding: 20px;
-    border-radius: 5px;
+  border: 1px solid black;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.nuoroda {
+  text-decoration: underline;
+  display: flex;
+  flex-direction: row;
+}
+
+.price {
+  color: seagreen;
 }
