@@ -21,9 +21,16 @@ p {
 }
 ol {
   list-style-type: none;
+  background-color: #ffa947;
+  border: black 3px solid;
+  border-radius: 50px;
+  padding: 5px;
+  margin: auto 0;
+  width: 80%;
+  display: inline-block;
 }
 img {
-  width: 80%;
+  width: 90%;
 }
 article {
   width: 80%;
@@ -47,4 +54,9 @@ td {
 }
 #bober {
   color: #e00e0e;
+}
+section {
+  width: 80%;
+  margin: 0 auto;
+  padding: 5px;
 }
