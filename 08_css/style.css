@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  width: 100%;
+  height: 100vh;
+  background-color: blueviolet;
+  background-image: url(https://cdn-images-1.medium.com/v2/resize:fit:1600/1*U-R58ahr5dtAvtSLGK2wXg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
