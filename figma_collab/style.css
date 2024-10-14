@@ -3,6 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  font-family: "Roboto", sans-serif;
+}
 .purpleLine {
   width: 100%;
   height: 20px;
@@ -20,7 +23,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 30px;
+  padding: 15px 30px;
+  border-bottom: rgba(220, 220, 220, 0.2) 3px solid;
 }
 .navigationContainer {
   display: flex;
@@ -33,4 +37,31 @@
   justify-content: center;
   align-items: center;
   gap: 20px;
+}
+.navigationContainer nav ul li {
+  list-style-type: none;
+  font-size: 14px;
+}
+.navigationContainer nav ul li a {
+  text-decoration: none;
+  font-weight: 700;
+  color: #2b0236;
+}
+.navigationContainer nav ul li a:hover {
+  color: #a60505;
+}
+.headerBtn {
+  padding: 5px 10px;
+  background-color: transparent;
+  border: #9a54bc 2px solid;
+  border-radius: 3px;
+  font-size: 10px;
+  color: #9a54bc;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.headerBtn:hover {
+  background-color: #9a54bc;
+  color: white;
 }
