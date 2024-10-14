@@ -5,6 +5,10 @@
   --rabbit-color: #fbf022;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: "Oswald", sans-serif;
@@ -67,23 +71,23 @@ header nav a:hover {
 
 @keyframes forest {
   0% {
-      transform: scale(1);
-      filter: brightness(1);
+    transform: scale(1);
+    filter: brightness(1);
   }
   93% {
-      filter: brightness(1);
+    filter: brightness(1);
   }
   99% {
-      transform: scale(2);
-      filter: brightness(0.05);
+    transform: scale(2);
+    filter: brightness(0.05);
   }
   99.5% {
-      transform: scale(1);
-      filter: brightness(0.05);
+    transform: scale(1);
+    filter: brightness(0.05);
   }
   100% {
-      transform: scale(1);
-      filter: brightness(1);
+    transform: scale(1);
+    filter: brightness(1);
   }
 }
 
@@ -122,5 +126,199 @@ header nav a:hover {
   font-size: 20px;
   color: white;
   max-width: 600px;
-  
+}
+
+.stats {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.stats-bin {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  width: 100%;
+  max-width: var(--container-width);
+  display: flex;
+  padding: 0 30px;
+  justify-content: center;
+  flex-direction: row;
+  column-gap: 30px;
+  row-gap: 50px;
+  flex-wrap: wrap;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  padding: 20px;
+  width: 100%;
+  max-width: 280px;
+  min-width: 230px;
+}
+
+.stats h4 {
+  font-size: 60px;
+  color: var(--blue);
+  margin: 0;
+}
+
+.stat p {
+  font-size: 20px;
+  color: gray;
+  margin: 0;
+  text-align: center;
+}
+
+.box-content-left svg {
+  width: 100px;
+  height: 100px;
+}
+.boxes {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 200px;
+}
+.boxes .boxes-bin {
+  width: 100%;
+  max-width: var(--container-width);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.boxes .boxes-bin .boxes-header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+.boxes .boxes-bin .boxes-header h2 {
+  font-size: 40px;
+  margin: 0;
+  color: var(--blue);
+  text-align: center;
+}
+.boxes .boxes-bin .boxes-header p {
+  font-size: 20px;
+  color: gray;
+  text-align: center;
+}
+.boxes .boxes-bin .boxes-content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 30px;
+  @media screen and (max-width: 1280px) {
+    padding: 0 20px;
+  }
+}
+.boxes .boxes-bin .boxes-content .box {
+  width: 30%;
+  border: 1px solid #dedede;
+  border-radius: 40px;
+  padding: 10px;
+  @media screen and (max-width: 1280px) {
+    width: 47%;
+  }
+  @media screen and (max-width: 700px) {
+    width: 100%;
+  }
+}
+.boxes .boxes-bin .boxes-content .box .box-content {
+  display: flex;
+  column-gap: 20px;
+  align-items: center;
+}
+.boxes
+  .boxes-bin
+  .boxes-content
+  div:nth-child(1)
+  .box-content
+  .box-content-left
+  svg {
+  fill: skyblue;
+}
+body
+  > main
+  > section.boxes
+  > div
+  > div.boxes-content
+  > div:nth-child(1)
+  > div
+  > div
+  > svg
+  > path:nth-child(2),
+body
+  > main
+  > section.boxes
+  > div
+  > div.boxes-content
+  > div:nth-child(1)
+  > div
+  > div
+  > svg
+  > path:nth-child(3) {
+  fill: brown;
+}
+.boxes
+  .boxes-bin
+  .boxes-content
+  div:nth-child(2)
+  .box-content
+  .box-content-left
+  svg {
+  fill: lightgreen;
+}
+.boxes
+  .boxes-bin
+  .boxes-content
+  div:nth-child(3)
+  .box-content
+  .box-content-left
+  svg {
+  fill: lightpink;
+}
+#_x30_3_x2C__deer_x2C__mammal_x2C__animal_x2C__wildlife_x2C__animal_kingdom_x2C__zoo
+  > g
+  > g
+  > path:nth-child(3) {
+  fill: gold;
+}
+.boxes
+  .boxes-bin
+  .boxes-content
+  div:nth-child(4)
+  .box-content
+  .box-content-left
+  svg {
+  fill: lightseagreen;
+}
+.boxes
+  .boxes-bin
+  .boxes-content
+  div:nth-child(5)
+  .box-content
+  .box-content-left
+  svg {
+  fill: lightcoral;
+}
+.boxes
+  .boxes-bin
+  .boxes-content
+  div:nth-child(6)
+  .box-content
+  .box-content-left
+  svg {
+  fill: lightseagreen;
+}
+.boxes .boxes-bin .boxes-content .box .box-content-right {
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
 }
