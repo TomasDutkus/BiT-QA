@@ -3,6 +3,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+:root {
+  --lightViolet: #9a54bc;
+  --midViolet: #60267f;
+  --darkViolet: #2b0236;
+}
 body {
   font-family: "Roboto", sans-serif;
 }
@@ -64,4 +69,54 @@ body {
 .headerBtn:hover {
   background-color: #9a54bc;
   color: white;
+}
+.sectionOneContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 40px;
+  flex-direction: column;
+  gap: 30px;
+}
+.sectionOneText {
+  font-size: 36px;
+  text-align: center;
+  color: #2b0236;
+}
+.sectionOneBtn {
+  padding: 15px 20px;
+  background-color: var(--lightViolet);
+  border: var(--lightViolet) 1px solid;
+  border-radius: 5px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0px 4.4px 8.8px 0px #0000001a;
+}
+.sectionOneBtn:hover {
+  background-color: white;
+  color: var(--lightViolet);
+}
+.sectionTwoEllipseContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: 200px;
+}
+.absolute {
+  position: absolute;
+}
+.smallEllipse {
+  top: -170px;
+}
+.rectangle {
+  top: -160px;
+}
+.ellipseLogo {
+  top: -50px;
+}
+.ellipseBtn {
+  top: 130px;
 }
