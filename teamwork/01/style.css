@@ -1,0 +1,42 @@
+.reviewsContainer {
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  max-width: 1080px;
+  padding: 30px 34px;
+  margin: auto;
+}
+.review {
+  position: relative;
+}
+.reviewsH2 {
+  font-size: 30px;
+  text-align: center;
+  color: #5c5c5c;
+}
+.reviewsH3 {
+  font-size: 18px;
+  color: #444444;
+}
+.red-star {
+  color: #c13e3f;
+}
+.reviewsParagraph {
+  font-size: 15px;
+  line-height: 2.5;
+  color: #444444;
+  margin-bottom: 30px;
+}
+.reviewsImg {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.reviewsWebsite {
+  text-decoration: none;
+  color: #c23f3e;
+}
