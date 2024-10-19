@@ -1,0 +1,32 @@
+:root {
+  --gray: #7d7987;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Mulish", sans-serif;
+}
+.headerContainerTop {
+  display: flex;
+}
+.headerNav ul {
+  display: flex;
+  list-style: none;
+}
+.headerNav ul li a {
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22.59px;
+  color: var(--gray);
+}
+.headerNav ul li a:hover {
+  color: #1f1534;
+  font-weight: 700;
+}
+.headerContainerBot {
+  display: flex;
+}
