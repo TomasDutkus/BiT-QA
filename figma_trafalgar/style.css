@@ -1,5 +1,6 @@
 :root {
   --gray: #7d7987;
+  --blue: #458ff6;
 }
 * {
   margin: 0;
@@ -9,11 +10,20 @@
 body {
   font-family: "Mulish", sans-serif;
 }
+header {
+  display: flex;
+  justify-content: space-around;
+  height: 100vh;
+}
 .headerContainerTop {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 50px 0;
 }
 .headerNav ul {
   display: flex;
+  gap: 40px;
   list-style: none;
 }
 .headerNav ul li a {
@@ -29,4 +39,122 @@ body {
 }
 .headerContainerBot {
   display: flex;
+  align-items: center;
+  gap: 100px;
+}
+.headerContainerBotLeft {
+  display: flex;
+  flex-direction: column;
+  row-gap: 50px;
+}
+.headerContainerBot h1 {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 56px;
+  color: #000000;
+}
+.headerContainerBot p {
+  font-weight: 300;
+  font-size: 21px;
+  line-height: 32px;
+  color: var(--gray);
+}
+.headerContainerBot button {
+  padding: 10px 20px;
+  background-color: var(--blue);
+  border: var(--blue) 1px solid;
+  border-radius: 55px;
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+.headerContainerBot button:hover {
+  background-color: white;
+  color: var(--blue);
+}
+.headerContainerBot img {
+  width: 100%;
+}
+.element {
+  position: absolute;
+  width: 131.58px;
+  height: 115px;
+  top: 160px;
+  left: -25px;
+  gap: 0px;
+  opacity: 0.3px;
+}
+.sectionOneContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sectionOneContainer h2 {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 56px;
+  text-align: center;
+}
+.sectionOneContainer p {
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 30px;
+  color: var(--gray);
+  text-align: center;
+}
+.servicesBoxContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 35px;
+  margin: 150px;
+}
+.servicesBox {
+  width: 350px;
+  height: 350px;
+  box-shadow: 10px 40px 50px 0px #e5e9f666;
+  flex: 1 1 calc(33.33% - 35px);
+  border-radius: 20px;
+  padding: 50px;
+  background-color: white;
+}
+.servicesBox h3 {
+  padding-top: 20px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 56px;
+  text-align: left;
+}
+.servicesBox p {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 28px;
+  text-align: left;
+  color: var(--gray);
+}
+.relativeImg {
+  position: relative;
+  top: -50px;
+  left: 77px;
+}
+.element1 {
+  position: relative;
+  width: 131.58px;
+  height: 115px;
+  top: -600px;
+  left: 895px;
+  gap: 0px;
+  opacity: 0.3px;
+  z-index: -1;
+}
+.bgElement {
+  position: absolute;
+  width: 1118.54px;
+  height: 967.94px;
+  top: 1065px;
+  left: -266px;
+  gap: 0px;
+  opacity: 0px;
+  z-index: -1;
 }
