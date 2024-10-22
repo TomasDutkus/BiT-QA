@@ -189,3 +189,25 @@ h2 {
 .imgContainer {
   width: 50%;
 }
+.paraContainer {
+  flex-direction: column;
+  align-items: flex-start;
+  align-items: center;
+  gap: 30px;
+}
+.textContainerParagraph {
+  background-color: #f2f2f2;
+  width: 80%;
+  padding: 30px 10px;
+}
+.textContainerParagraph span {
+  font-size: 14px;
+  font-weight: 500;
+}
+.imgContainer {
+  width: 50%;
+}
+.imgContainer img {
+  margin-top: 220px;
+  width: 320px;
+}
