@@ -246,3 +246,72 @@ h2 {
 .card p {
   padding: 0 10px;
 }
+.readyToStartContainer {
+  flex-direction: column;
+  margin-top: 250px;
+}
+.readyToStartPara {
+  margin-top: 10px;
+  color: #a79d9d;
+  font-size: 16px;
+}
+.monthlyContainer {
+  margin-top: 30px;
+  gap: 10px;
+}
+.monthly {
+  font-size: 14px;
+  color: #a79d9d;
+}
+.yearly {
+  font-size: 14px;
+  font-weight: 500;
+}
+.monthlyContainer span {
+  font-size: 10px;
+  background-color: #ffe87a;
+  padding: 2px;
+  border-radius: 3px;
+}
+.bigCardsContainer {
+  margin-top: 100px;
+  gap: 30px;
+  width: 100%;
+}
+.bigCard {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 12%;
+  border: 1px solid gainsboro;
+  height: 450px;
+  padding: 30px;
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out;
+}
+.bigCard p {
+  font-weight: 500;
+}
+.bigCard button {
+  background-color: white;
+  padding: 15px 30px;
+  color: var(--darkViolet);
+  border: 3px solid var(--darkViolet);
+  font-weight: 700;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.bigCard ul li {
+  margin-top: 5px;
+  padding-left: 10px;
+}
+.bigCard ul li::marker {
+  content: "►";
+}
+.bigCard:hover {
+  background-color: #56e6a5;
+}
+.bigCardsContainer .bigCard .bigCardLastPara {
+  font-size: 12px;
+  font-weight: 300;
+}
