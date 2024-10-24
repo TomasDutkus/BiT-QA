@@ -60,6 +60,8 @@ header {
   color: var(--gray);
 }
 .headerContainerBot button {
+  width: 200px;
+  height: 60px;
   padding: 10px 20px;
   background-color: var(--blue);
   border: var(--blue) 1px solid;
@@ -139,11 +141,11 @@ header {
   left: 77px;
 }
 .element1 {
-  position: relative;
+  position: absolute;
   width: 131.58px;
   height: 115px;
-  top: -600px;
-  left: 895px;
+  top: 1535px;
+  right: 100px;
   gap: 0px;
   opacity: 0.3px;
   z-index: -1;
@@ -157,4 +159,24 @@ header {
   gap: 0px;
   opacity: 0px;
   z-index: -1;
+}
+.button {
+  width: 200px;
+  height: 60px;
+  padding: 10px 20px;
+  background-color: white;
+  border: var(--blue) 1px solid;
+  border-radius: 55px;
+  color: var(--blue);
+  font-weight: 700;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+.button:hover {
+  background-color: var(--blue);
+  color: white;
+}
+#button2 {
+  margin-top: -75px;
 }
