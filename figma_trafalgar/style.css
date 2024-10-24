@@ -93,17 +93,18 @@ header {
   flex-direction: column;
   align-items: center;
 }
-.sectionOneContainer h2 {
+.styleH2 {
   font-size: 36px;
   font-weight: 700;
   line-height: 56px;
-  text-align: center;
 }
-.sectionOneContainer p {
+.styleP2 {
   font-weight: 300;
   font-size: 18px;
   line-height: 30px;
   color: var(--gray);
+}
+.sectionOneContainer p {
   text-align: center;
 }
 .servicesBoxContainer {
@@ -144,7 +145,7 @@ header {
   position: absolute;
   width: 131.58px;
   height: 115px;
-  top: 1535px;
+  top: 1565px;
   right: 100px;
   gap: 0px;
   opacity: 0.3px;
@@ -179,4 +180,15 @@ header {
 }
 #button2 {
   margin-top: -75px;
+}
+.sectionTwoContainer {
+  display: flex;
+  align-items: center;
+  margin-top: 200px;
+  justify-content: center;
+  column-gap: 200px;
+}
+.rectangle {
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
