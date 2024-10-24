@@ -165,3 +165,290 @@ const galutineKaine = document.querySelector("section#go6 [data-total] span");
 galutineKaine.innerText = kaina;
 
 // 7
+
+const I = rand(1, 3);
+
+document.querySelector("section#go7").style.display = "flex";
+const iTag = document.querySelector("section#go7 div");
+
+if (I == 1) {
+  iTag.style.width = "100px";
+  iTag.style.height = "100px";
+  iTag.style.backgroundColor = "blue";
+  iTag.style.borderRadius = "50%";
+} else if (I == 2) {
+  iTag.style.width = "100px";
+  iTag.style.height = "100px";
+  iTag.style.backgroundColor = "red";
+} else {
+  iTag.style.width = "100px";
+  iTag.style.height = "100px";
+  iTag.style.backgroundColor = "green";
+  iTag.style.clipPath = "polygon(50% 0, 100% 100%, 0 100%)";
+}
+
+// 8
+
+let zalia = 0;
+let raudona = 0;
+let melyna = 0;
+
+if (
+  document.querySelector("section#go8 div:nth-of-type(1)").style
+    .backgroundColor == "green"
+) {
+  zalia += 1;
+}
+if (
+  document.querySelector("section#go8 div:nth-of-type(2)").style
+    .backgroundColor == "green"
+) {
+  zalia += 1;
+}
+if (
+  document.querySelector("section#go8 div:nth-of-type(3)").style
+    .backgroundColor == "green"
+) {
+  zalia += 1;
+}
+if (
+  document.querySelector("section#go8 div:nth-of-type(4)").style
+    .backgroundColor == "green"
+) {
+  zalia += 1;
+}
+if (
+  document.querySelector("section#go8 div:nth-of-type(5)").style
+    .backgroundColor == "green"
+) {
+  zalia += 1;
+}
+if (
+  document.querySelector("section#go8 div:nth-of-type(6)").style
+    .backgroundColor == "green"
+) {
+  zalia += 1;
+}
+
+if (
+  document.querySelector("section#go8 div:nth-of-type(1)").style
+    .backgroundColor == "red"
+) {
+  raudona += 1;
+}
+if (
+  document.querySelector("section#go8 div:nth-of-type(2)").style
+    .backgroundColor == "red"
+) {
+  raudona += 1;
+}
+if (
+  document.querySelector("section#go8 div:nth-of-type(3)").style
+    .backgroundColor == "red"
+) {
+  raudona += 1;
+}
+if (
+  document.querySelector("section#go8 div:nth-of-type(4)").style
+    .backgroundColor == "red"
+) {
+  raudona += 1;
+}
+if (
+  document.querySelector("section#go8 div:nth-of-type(5)").style
+    .backgroundColor == "red"
+) {
+  raudona += 1;
+}
+if (
+  document.querySelector("section#go8 div:nth-of-type(6)").style
+    .backgroundColor == "red"
+) {
+  raudona += 1;
+}
+
+if (
+  document.querySelector("section#go8 div:nth-of-type(1)").style
+    .backgroundColor == "blue"
+) {
+  melyna += 1;
+}
+if (
+  document.querySelector("section#go8 div:nth-of-type(2)").style
+    .backgroundColor == "blue"
+) {
+  melyna += 1;
+}
+if (
+  document.querySelector("section#go8 div:nth-of-type(3)").style
+    .backgroundColor == "blue"
+) {
+  melyna += 1;
+}
+if (
+  document.querySelector("section#go8 div:nth-of-type(4)").style
+    .backgroundColor == "blue"
+) {
+  melyna += 1;
+}
+if (
+  document.querySelector("section#go8 div:nth-of-type(5)").style
+    .backgroundColor == "blue"
+) {
+  melyna += 1;
+}
+if (
+  document.querySelector("section#go8 div:nth-of-type(6)").style
+    .backgroundColor == "blue"
+) {
+  melyna += 1;
+}
+
+document.querySelector(
+  "#go8 > div:nth-child(7) > p:nth-child(2) > span"
+).innerText = zalia;
+document.querySelector(
+  "#go8 > div:nth-child(7) > p:nth-child(3) > span"
+).innerText = raudona;
+document.querySelector(
+  "#go8 > div:nth-child(7) > p:nth-child(4) > span"
+).innerText = melyna;
+
+// 9
+
+const skaicius1 = document.querySelector(
+  "#go9 > div:nth-child(1) > span:nth-child(1)"
+).innerText;
+
+const skaicius2 = document.querySelector(
+  "#go9 > div:nth-child(1) > span:nth-child(2)"
+).innerText;
+
+const skaicius3 = skaicius1 * skaicius2;
+
+document.querySelector(
+  "#go9 > div:nth-child(1) > span:nth-child(3)"
+).innerText = skaicius3;
+
+const skaicius4 = document.querySelector(
+  "#go9 > div:nth-child(2) > span:nth-child(1)"
+).innerText;
+
+const skaicius5 = document.querySelector(
+  "#go9 > div:nth-child(2) > span:nth-child(2)"
+).innerText;
+
+const skaicius6 = skaicius4 * skaicius5;
+
+document.querySelector(
+  "#go9 > div:nth-child(2) > span:nth-child(3)"
+).innerText = skaicius6;
+
+const skaicius7 = document.querySelector(
+  "#go9 > div:nth-child(3) > span:nth-child(1)"
+).innerText;
+
+const skaicius8 = document.querySelector(
+  "#go9 > div:nth-child(3) > span:nth-child(2)"
+).innerText;
+
+const skaicius9 = skaicius7 * skaicius8;
+
+document.querySelector(
+  "#go9 > div:nth-child(3) > span:nth-child(3)"
+).innerText = skaicius9;
+
+const skaicius10 = document.querySelector(
+  "#go9 > div:nth-child(4) > span:nth-child(1)"
+).innerText;
+
+const skaicius11 = document.querySelector(
+  "#go9 > div:nth-child(4) > span:nth-child(2)"
+).innerText;
+
+const skaicius12 = skaicius10 * skaicius11;
+
+document.querySelector(
+  "#go9 > div:nth-child(4) > span:nth-child(3)"
+).innerText = skaicius12;
+
+const skaicius13 = document.querySelector(
+  "#go9 > div:nth-child(5) > span:nth-child(1)"
+).innerText;
+
+const skaicius14 = document.querySelector(
+  "#go9 > div:nth-child(5) > span:nth-child(2)"
+).innerText;
+
+const skaicius15 = skaicius13 * skaicius14;
+
+document.querySelector(
+  "#go9 > div:nth-child(5) > span:nth-child(3)"
+).innerText = skaicius15;
+
+// 10
+
+const skaicius16 = document
+  .querySelector("#go10 > div:nth-child(1)")
+  .style.width.replace("px", "");
+const skaicius17 = document
+  .querySelector("#go10 > div:nth-child(1)")
+  .style.height.replace("px", "");
+const skaicius18 = skaicius16 * skaicius17;
+
+if (skaicius18 > 10000) {
+  document.querySelector("#go10 > div:nth-child(1)").style.backgroundColor =
+    "red";
+}
+
+const skaicius19 = document
+  .querySelector("#go10 > div:nth-child(2)")
+  .style.width.replace("px", "");
+const skaicius20 = document
+  .querySelector("#go10 > div:nth-child(2)")
+  .style.height.replace("px", "");
+const skaicius21 = skaicius19 * skaicius20;
+
+if (skaicius21 > 10000) {
+  document.querySelector("#go10 > div:nth-child(2)").style.backgroundColor =
+    "red";
+}
+
+const skaicius22 = document
+  .querySelector("#go10 > div:nth-child(3)")
+  .style.width.replace("px", "");
+const skaicius23 = document
+  .querySelector("#go10 > div:nth-child(3)")
+  .style.height.replace("px", "");
+const skaicius24 = skaicius22 * skaicius23;
+
+if (skaicius24 > 10000) {
+  document.querySelector("#go10 > div:nth-child(3)").style.backgroundColor =
+    "red";
+}
+
+const skaicius25 = document
+  .querySelector("#go10 > div:nth-child(4)")
+  .style.width.replace("px", "");
+const skaicius26 = document
+  .querySelector("#go10 > div:nth-child(4)")
+  .style.height.replace("px", "");
+const skaicius27 = skaicius25 * skaicius26;
+
+if (skaicius27 > 10000) {
+  document.querySelector("#go10 > div:nth-child(4)").style.backgroundColor =
+    "red";
+}
+
+const skaicius28 = document
+  .querySelector("#go10 > div:nth-child(5)")
+  .style.width.replace("px", "");
+const skaicius29 = document
+  .querySelector("#go10 > div:nth-child(5)")
+  .style.height.replace("px", "");
+const skaicius30 = skaicius28 * skaicius29;
+
+if (skaicius30 > 10000) {
+  document.querySelector("#go10 > div:nth-child(5)").style.backgroundColor =
+    "red";
+}
