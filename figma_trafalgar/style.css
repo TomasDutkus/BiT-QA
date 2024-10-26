@@ -195,3 +195,25 @@ header {
 .sectionTwoRightContainer button {
   margin-top: 50px;
 }
+.element2 {
+  position: absolute;
+  width: 131.58px;
+  height: 115px;
+  top: 2783px;
+  right: 0px;
+  gap: 0px;
+  opacity: 0.3px;
+}
+.sectionThreeContainer {
+  display: flex;
+  align-items: center;
+  margin-top: 200px;
+  justify-content: center;
+  column-gap: 200px;
+}
+.sectionThreeLeftContainer button {
+  margin-top: 50px;
+}
+.sectionThreeLeftContainer img {
+  margin-left: 10px;
+}
