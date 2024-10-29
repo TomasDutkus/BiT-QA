@@ -1,25 +1,33 @@
+$josefin: "Josefin Sans", sans-serif;
 $xl: 1200px;
 $lg: 992px;
 $md: 768px;
 $sm: 576px;
 $xs: 375px;
+
 $blue: #08415c;
 $red: #cc2936;
 $bg: #e9fff9;
 $yellow: #f1d302;
 $black: #220901;
 $white: #ffffff;
+
 * {
   box-sizing: border-box;
 }
+
 body {
+  font-family: $josefin;
   margin: 0;
 }
-ul li {
+
+ul,
+li {
   list-style: none;
   margin: 0;
   padding: 0;
 }
+
 header {
   display: flex;
   width: 100%;
@@ -67,17 +75,17 @@ header {
       .list {
         position: absolute;
         top: 50px;
-        right: 0;
-        background-color: $bg;
-        border: 1px solid $blue;
-        border-radius: 5px;
+        right: -20px;
+        background-color: $white;
+        border: 3px solid $bg;
         padding: 10px;
-        display: none;
         z-index: 1;
         ul {
+          width: 320px;
           li {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             margin-bottom: 10px;
             img {
               width: 50px;
@@ -85,9 +93,8 @@ header {
             }
             .info {
               display: flex;
-              flex-direction: column;
-              justify-content: center;
               align-items: center;
+              column-gap: 5px;
               h3 {
                 font-size: 20px;
                 color: $blue;
@@ -99,6 +106,7 @@ header {
             }
             button {
               background-color: $red;
+              height: 30px;
               color: $white;
               border: none;
               padding: 5px 10px;

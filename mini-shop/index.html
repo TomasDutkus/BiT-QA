@@ -3,10 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
-    <script src="app.js"></script>
+    <script src="app.js" defer></script>
     <title>Mini Shop</title>
   </head>
+
   <body>
     <header>
       <div class="container">
@@ -15,7 +22,7 @@
         </div>
         <nav>
           <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a class="in-use" href="index.html">Home</a></li>
             <li><a href="products.html">Products</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
@@ -35,7 +42,33 @@
           </a>
           <div class="list">
             <ul>
-              <li></li>
+              <li>
+                <img src="./images/kede.jpg" alt="Kėdė" />
+                <div class="info">
+                  <h3>Kėdė</h3>
+                  <p>50.00 €</p>
+                  <p>Quantity: 1</p>
+                </div>
+                <button>X</button>
+              </li>
+              <li>
+                <img src="./images/sofa.jpg" alt="Sofa" />
+                <div class="info">
+                  <h3>Sofa</h3>
+                  <p>150.00 €</p>
+                  <p>Quantity: 1</p>
+                </div>
+                <button>X</button>
+              </li>
+              <li>
+                <img src="./images/stalas.jpg" alt="Stalas" />
+                <div class="info">
+                  <h3>Stalas</h3>
+                  <p>100.00 €</p>
+                  <p>Quantity: 3</p>
+                </div>
+                <button>X</button>
+              </li>
             </ul>
           </div>
         </div>
