@@ -1,0 +1,117 @@
+$xl: 1200px;
+$lg: 992px;
+$md: 768px;
+$sm: 576px;
+$xs: 375px;
+$blue: #08415c;
+$red: #cc2936;
+$bg: #e9fff9;
+$yellow: #f1d302;
+$black: #220901;
+$white: #ffffff;
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+ul li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+header {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: $xl;
+    background-color: $bg;
+    padding: 0 20px;
+    height: 100px;
+    nav {
+      padding: 10px;
+      ul {
+        display: flex;
+        column-gap: 30px;
+        li {
+          a {
+            color: $blue;
+            font-size: 30px;
+            text-decoration: none;
+            font-weight: 200;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+            &.in-use {
+              color: $red;
+            }
+            &:hover {
+              border-bottom: 1px solid $red;
+            }
+          }
+        }
+      }
+    }
+    .cart {
+      position: relative;
+      svg {
+        width: 40px;
+        height: 40px;
+      }
+      .list {
+        position: absolute;
+        top: 50px;
+        right: 0;
+        background-color: $bg;
+        border: 1px solid $blue;
+        border-radius: 5px;
+        padding: 10px;
+        display: none;
+        z-index: 1;
+        ul {
+          li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            img {
+              width: 50px;
+              height: 50px;
+            }
+            .info {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              h3 {
+                font-size: 20px;
+                color: $blue;
+              }
+              p {
+                font-size: 15px;
+                color: $black;
+              }
+            }
+            button {
+              background-color: $red;
+              color: $white;
+              border: none;
+              padding: 5px 10px;
+              border-radius: 5px;
+              cursor: pointer;
+              transition: all 0.3s ease;
+              &:hover {
+                background-color: $yellow;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
