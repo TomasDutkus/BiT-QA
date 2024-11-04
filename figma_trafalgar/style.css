@@ -217,3 +217,13 @@ header {
 .sectionThreeLeftContainer img {
   margin-left: 10px;
 }
+.sectionFourContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 200px;
+  background-image: url(./img/background.svg);
+  background-size: cover;
+  width: 80%;
+}
