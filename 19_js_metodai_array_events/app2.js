@@ -25,3 +25,8 @@ document.querySelector(".tevas").addEventListener("click", (e) => {
   document.querySelector(".tevas").style.backgroundColor = "darkred";
   // e.target.style.backgroundColor = "darkred";
 });
+
+document.querySelector(".vaikas").addEventListener("click", (e) => {
+  e.stopPropagation();
+  document.querySelector(".vaikas").style.backgroundColor = "darkblue";
+});
