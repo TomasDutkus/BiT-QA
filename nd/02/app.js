@@ -6,6 +6,15 @@ function rand(min, max) {
   return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled);
 }
 
+function randomColor() {
+  return (
+    "#" +
+    Math.floor(Math.random() * 16777215)
+      .toString(16)
+      .padEnd(6, "0")
+  );
+}
+
 // 1 Naršyklėje įdėkite 14 h1 tagų su skaičiumi 4 ir 14 h4 tagų su skaičiumi 1. Visi tagai turi rikiuotis į vieną eilutę.
 
 const s1Tag = document.querySelector("#s1");
@@ -29,9 +38,9 @@ let p2Tag = "";
 for (let i = 0; i < 44; i++) {
   const randNr2 = rand(14, 44);
   if (randNr2 % 4 === 0) {
-    p2Tag += `<span style="color: red">${randNr2} </span>`;
+    p2Tag += `<span style="color: red">${randNr2}</span>`;
   } else {
-    p2Tag += `<span style="color: blue">${randNr2} </span>`;
+    p2Tag += `<span style="color: blue">${randNr2}</span>`;
   }
 }
 
