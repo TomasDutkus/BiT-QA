@@ -117,7 +117,7 @@ s6Tag.innerHTML = p6Tag;
 
 // 7 Naršyklėje nupieškite 14 atsitiktinių spalvų kvadratų esančių vienas kitame (“matrioška”).#pamastykKaip
 
-const s7Tag = document.querySelector("#s7");
+/*const s7Tag = document.querySelector("#s7");
 
 for (let i = 0; i < 14; i++) {
   const p7Tag = document.createElement("p");
@@ -129,4 +129,43 @@ for (let i = 0; i < 14; i++) {
     Math.random() * 256
   )}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
   s7Tag.appendChild(p7Tag);
+} */
+
+const s7Tag = document.querySelector("#s7");
+s7Tag.style.position = "relative";
+s7Tag.style.marginBottom = "520px";
+
+let size = 500;
+let square = "";
+
+for (let i = 0; i < 14; i++) {
+  square += `<div style="
+  width: ${size}px;
+  height: ${size}px;
+  position: absolute;
+  background-color: ${randomColor()};
+  top:${(500 - size) / 2}px; 
+  left:${(500 - size) / 2}px;
+  "></div>`;
+
+  size -= 30;
 }
+s7Tag.innerHTML = square;
+
+// 8 Iš simbolio &#9632; (kopijuoti visą žalią tekstą su kabliataškiu) sudėliokite žalią kvadratą turintį 41x41 šių simbolių. Kad kvadratas atrodytų “kvadratiškai” panaudokite css stilių ir papildomus tagus. #ciklasCikle
+
+const s8Tag = document.querySelector("#s8");
+
+let squareWithSymbols = "";
+
+for (let i = 0; i < 41; i++) {
+  let row = `<div style="display: grid; grid-template-columns: repeat(41, 1.1em)">`;
+
+  for (let j = 0; j < 41; j++) {
+    row += `<span>&#9632;</span>`;
+  }
+  row += `</div>`;
+  squareWithSymbols += row;
+}
+
+s8Tag.innerHTML = squareWithSymbols;
