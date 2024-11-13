@@ -2,7 +2,7 @@
 //     {
 //         id: 1,
 //         img: './images/kede.jpg',
-//         title: 'Kedė',
+//         title: 'Kėdė',
 //         price: 50,
 //         quantity: 4
 //     },
@@ -29,21 +29,46 @@
 //     }
 // ];
 
+// bandymas su local storage
+
+const obj = { name: "Jonas", age: 25 };
+
+localStorage.setItem("person", JSON.stringify(obj));
+
 let C = [];
 
-const cartIcon = document.querySelector("[data-cart-icon]");
-const cartList = document.querySelector("[data-cart-list]");
+const init = (_) => {
+  const cartIcon = document.querySelector("[data-cart-icon]");
+  cartIcon.addEventListener("click", (_) => changeCart());
+  cartRender();
+  addEvents();
+  productsAction();
+};
 
-cartIcon.addEventListener("click", (_) => {
-  if (cartList.dataset.open === "close") {
-    cartList.dataset.open = "open";
-    cartList.style.maxHeight = cartList.scrollHeight + "px";
+const updateCount = (_) => {
+  const count = C.reduce((acc, item) => acc + item.quantity, 0);
+  document.querySelector("[data-cart-count]").textContent = count;
+};
+
+const changeCart = (changeView = true) => {
+  const cartList = document.querySelector("[data-cart-list]");
+
+  if (changeView) {
+    if (cartList.dataset.open === "close") {
+      cartList.dataset.open = "open";
+      cartList.style.maxHeight = cartList.scrollHeight + "px";
+    } else {
+      cartList.dataset.open = "close";
+      cartList.style.maxHeight = "0";
+    }
   } else {
-    cartList.dataset.open = "close";
-    cartList.style.maxHeight = "0";
+    if (cartList.dataset.open === "close") {
+      cartList.style.maxHeight = "0";
+    } else {
+      cartList.style.maxHeight = cartList.scrollHeight + "px";
+    }
   }
-});
-
+};
 const showMessage = (_) => {
   const message = document.querySelector("[data-show]");
   message.dataset.show = true;
@@ -66,20 +91,23 @@ const productsAction = (_) => {
       const price = parseFloat(button.dataset.price);
       const quantity = parseInt(input.value);
 
-      C.push({
-        id,
-        img,
-        title: name,
-        price,
-        quantity,
-      });
+      const findItem = C.find((item) => item.id === id);
+      if (findItem) {
+        findItem.quantity += quantity;
+      } else {
+        C.push({
+          id,
+          img,
+          title: name,
+          price,
+          quantity,
+        });
+      }
 
       showMessage();
       cartRender();
       addEvents();
-      const cartList = document.querySelector("[data-cart-list]");
-      cartList.dataset.open = "close";
-      cartList.style.maxHeight = "0";
+      changeCart(false);
     });
   });
 };
@@ -103,8 +131,12 @@ const cartRender = (_) => {
   });
   if (!cartHtml) {
     cartHtml = "<li data-empty>Krepšelis tuščias</li>";
+  } else {
+    const total = C.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    cartHtml += `<li data-empty>Total: ${total.toFixed(2)} €</li>`;
   }
   document.querySelector("[data-cart-list] ul").innerHTML = cartHtml;
+  updateCount();
 };
 
 const addEvents = (_) => {
@@ -121,6 +153,4 @@ const addEvents = (_) => {
     });
 };
 
-cartRender();
-addEvents();
-productsAction();
+init();
