@@ -156,16 +156,42 @@ s7Tag.innerHTML = square;
 
 const s8Tag = document.querySelector("#s8");
 
-let squareWithSymbols = "";
+let square8 = "";
 
 for (let i = 0; i < 41; i++) {
-  let row = `<div style="display: grid; grid-template-columns: repeat(41, 1.1em)">`;
+  let row = `<div style="display:grid; grid-template-columns: repeat(41, 1.3rem);">`;
 
   for (let j = 0; j < 41; j++) {
-    row += `<span>&#9632;</span>`;
+    row += `<span style= "color: green;">&#9632;</span>`;
   }
   row += `</div>`;
-  squareWithSymbols += row;
+  square8 += row;
 }
 
-s8Tag.innerHTML = squareWithSymbols;
+s8Tag.innerHTML = square8;
+
+// 9 Uždavinyje prieš tai nupieštam kvadratui nupieškite geltonas istrižaines (geltonai nudažykite atitinkamus simbolius). #ciklasCikle
+
+const s9Tag = document.querySelector("#s9");
+let square9 = "";
+let sizes = 41;
+
+for (let i = 0; i < sizes; i++) {
+  let row = `<div style= "display:flex">`;
+
+  for (let j = 0; j < sizes; j++) {
+    let color = "";
+    if (i === j || i + j === sizes - 1) {
+      color = "yellow";
+    } else {
+      color = "green";
+    }
+    row += `<span style= "color: ${color};">&#9632</span>`;
+  }
+  row += `</div>`;
+  square9 += row;
+}
+
+s9Tag.innerHTML = square9;
+
+// 10 Uždavinį atlikite atskirame html faile. Visame ekrane atsitiktine tvarka “išmėtykite“ 444 pusiau permatomus atsitiktinės spalvos ir atsitiktinio skersmens nuo 44 iki 144 (px) apskritimus. Apskritimai turi tolygiai (pagal funkciją rand()) dengti visą ekraną.#fun
