@@ -29,15 +29,11 @@
 //     }
 // ];
 
-// bandymas su local storage
-
-const obj = { name: "Jonas", age: 25 };
-
-localStorage.setItem("person", JSON.stringify(obj));
-
-let C = [];
+let C;
 
 const init = (_) => {
+  C = JSON.parse(localStorage.getItem("cart")) ?? [];
+
   const cartIcon = document.querySelector("[data-cart-icon]");
   cartIcon.addEventListener("click", (_) => changeCart());
   cartRender();
@@ -48,6 +44,7 @@ const init = (_) => {
 const updateCount = (_) => {
   const count = C.reduce((acc, item) => acc + item.quantity, 0);
   document.querySelector("[data-cart-count]").textContent = count;
+  localStorage.setItem("cart", JSON.stringify(C));
 };
 
 const changeCart = (changeView = true) => {
