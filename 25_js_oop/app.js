@@ -1,6 +1,6 @@
 class TV {
   static programos = ["TV3", "LRT", "TV6", "TV1", "Animal Planet"];
-  static zinute;
+  static zinute = "Niekas dar nieko nepasake";
   static rasytiZinute(zinute) {
     this.zinute = zinute;
   }
@@ -57,7 +57,7 @@ class TVSamsung extends TV {
     this.model = "Samsung";
   }
   zaistZaidima() {
-    console.log("Zaidzia zaidima");
+    console.log(this.savininkas + " zaidzia zaidima");
   }
 }
 
@@ -87,7 +87,7 @@ tv3.ijungti();
 tv3.pakeistiKanala(5);
 tv3.info();
 
-const tv4 = new TVSony("Jonas");
+const tv4 = new TVSamsung("Jonas");
 
 //tv4.programos = naujosProgramos;
 

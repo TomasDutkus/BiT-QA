@@ -86,7 +86,67 @@ class Troleibusas {
 
 const troleibusas = new Troleibusas();
 troleibusas.ilipa(5);
-troleibusas.islipa(5);
-troleibusas.islipa(33);
+troleibusas.islipa(1);
+troleibusas.islipa(1);
 
 troleibusas.vaziuoja();
+
+// 4 (STATIC) Sukurti metodą keleiviuSkaiciusVisuoseTroleibusuose(), kuris rodytų bendrą keleivių skaičių visuose Troleibusas objektuose. Bendram kelevių skaičiaus skaičiavimui sukurkite statinį metodą bendrasKeleiviuSkaicius(keleiviuSkaicius), kuris pridėtų arba atimtų keleivius iš statinės savybės visiKeleiviai (kurioje yra įrašytas bendras keleivių skaičius). Taip pat atitinkamai modifikuokite metodus ilipa(keleiviuSkaicius) ir islipa(keleiviuSkaicius).
+
+class Troleibusas1 {
+  static visiKeleiviai = 0;
+  static troleibusai = [];
+
+  static keleiviuSkaiciusVisuoseTroleibusuose() {
+    console.log("Viso važiuojančių keleivių skaicius:" + this.visiKeleiviai);
+    this.troleibusai.forEach((troleibusas) => {
+      troleibusas.vaziuoja();
+    });
+  }
+
+  static bendrasKeleiviuSkaicius(keleiviuSkaicius) {
+    this.visiKeleiviai += keleiviuSkaicius;
+  }
+
+  static visiLauk() {
+    this.troleibusai.forEach((troleibusas) => {
+      troleibusas.islipa(troleibusas.keleiviuSkaicius);
+    });
+  }
+
+  constructor() {
+    this.keleiviuSkaicius = 0;
+    this.constructor.troleibusai.push(this);
+  }
+
+  ilipa(keleiviuSkaicius) {
+    this.keleiviuSkaicius += keleiviuSkaicius;
+    this.constructor.visiKeleiviai += keleiviuSkaicius;
+  }
+
+  islipa(keleiviuSkaicius) {
+    const liko = Math.max(this.keleiviuSkaicius - keleiviuSkaicius, 0);
+    this.constructor.bendrasKeleiviuSkaicius(liko - this.keleiviuSkaicius);
+    this.keleiviuSkaicius = liko;
+  }
+
+  vaziuoja() {
+    console.log("Troleibuso keleiviu skaicius: " + this.keleiviuSkaicius);
+  }
+}
+
+const troleibusas1 = new Troleibusas1();
+troleibusas1.ilipa(5);
+troleibusas1.islipa(5);
+troleibusas1.ilipa(5);
+
+const troleibusas11 = new Troleibusas1();
+troleibusas11.ilipa(5);
+troleibusas11.islipa(4);
+troleibusas11.ilipa(5);
+
+Troleibusas1.keleiviuSkaiciusVisuoseTroleibusuose();
+
+Troleibusas1.visiLauk();
+
+Troleibusas1.keleiviuSkaiciusVisuoseTroleibusuose();
