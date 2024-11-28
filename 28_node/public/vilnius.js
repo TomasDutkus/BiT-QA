@@ -23,3 +23,22 @@ param.querySelector("button").addEventListener("click", (_) => {
       h1.style.fontSize = data.size + "px";
     });
 });
+
+const query = document.querySelector("#query");
+const color1 = query.querySelector('[type="color"]');
+const range1 = query.querySelector('[type="range"]');
+
+query.querySelector("button").addEventListener("click", (_) => {
+  const colorWithoutHash = color1.value.slice(1);
+
+  fetch(
+    `http://localhost:3000/vilnius1?color=${colorWithoutHash}&size=${range1.value}`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      const h1 = document.querySelector("h1");
+      h1.style.color = "#" + data.color;
+      h1.style.fontSize = data.size + "px";
+    });
+});

@@ -28,6 +28,15 @@ app.get("/vilnius/:color/:size", (req, res) => {
   res.json(data);
 });
 
+app.get("/vilnius1", (req, res) => {
+  const { color = "000000", size = "20" } = req.query;
+  const data = {
+    color: color,
+    size: size,
+  };
+  res.json(data);
+});
+
 app.get("/athens", (req, res) => {
   const { color, size } = req.query;
   res.send(

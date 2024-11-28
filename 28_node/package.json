@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "test",
-    "start": "node --watch server.js"
+    "start": "node --watch server.js",
+    "front": "npx mix watch"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,8 @@
   "author": "Tomas",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.21.1"
+    "axios": "^1.7.8",
+    "express": "^4.21.1",
+    "laravel-mix": "^6.0.49"
   }
 }
