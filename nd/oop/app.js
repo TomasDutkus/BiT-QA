@@ -150,3 +150,94 @@ Troleibusas1.keleiviuSkaiciusVisuoseTroleibusuose();
 Troleibusas1.visiLauk();
 
 Troleibusas1.keleiviuSkaiciusVisuoseTroleibusuose();
+
+// 5 (MAP) Sukurti klasę PirkiniuKrepselis. Konstruktoriuje sukurti savybę turinys, kuri yra Map tipo objektas. Sukurti tris metodus: idetiSureli(kiekis), idetiPieno(kiekis), idetiDuonos(kiekis). Parašyti metodą krepselioTurinys(), kuris į konsolę išvestų produktų sąrašą (turinys kintamąjį). Pridėti tuos pačius produktus galima po kelis kartus, tokiu atveju produktų kiekis turėtų sumuotis.
+
+class PirkiniuKrepselis {
+  constructor() {
+    this.turinys = new Map();
+  }
+  idetiSureli(kiekis) {
+    this.turinys.set(
+      "sureliai",
+      this.turinys.has("sureliai")
+        ? this.turinys.get("sureliai") + kiekis
+        : kiekis
+    );
+  }
+
+  idetiPieno(kiekis) {
+    this.turinys.set(
+      "pienas",
+      this.turinys.has("pienas") ? this.turinys.get("pienas") + kiekis : kiekis
+    );
+  }
+
+  idetiDuonos(kiekis) {
+    this.turinys.set(
+      "duona",
+      this.turinys.has("duona") ? this.turinys.get("duona") + kiekis : kiekis
+    );
+  }
+
+  krepselioTurinys() {
+    console.log(this.turinys);
+  }
+}
+
+const pirkiniuKrepselis = new PirkiniuKrepselis();
+pirkiniuKrepselis.idetiSureli(2);
+pirkiniuKrepselis.idetiPieno(5);
+pirkiniuKrepselis.idetiDuonos(3);
+pirkiniuKrepselis.krepselioTurinys();
+pirkiniuKrepselis.idetiSureli(2);
+pirkiniuKrepselis.idetiPieno(5);
+pirkiniuKrepselis.idetiDuonos(3);
+pirkiniuKrepselis.krepselioTurinys();
+
+// 6 Patobulinti 2 uždavinio piniginę taip, kad būtų galima skaičiuoti kiek piniginėje yra monetų ir kiek banknotų. Parašyti metodą monetos(), kuris skaičiuotų kiek yra piniginėje monetų ir metoda banknotai() - popierinių pinigų skaičiavimui. Kiekvieną atskirą dėjimą (ideti(kiekis) metodo kvietimą) laikykite vienu banknotu ar viena moneta.
+
+class Pinigine1 {
+  constructor() {
+    this.popieriniaiPinigai = 0;
+    this.metaliniaiPinigai = 0;
+    this.monetos = 0;
+    this.banknotai = 0;
+  }
+
+  ideti(kiekis) {
+    if (kiekis < 2) {
+      this.metaliniaiPinigai += kiekis;
+      this.monetos++;
+    } else {
+      this.popieriniaiPinigai += kiekis;
+      this.banknotai++;
+    }
+  }
+
+  getMonetos() {
+    console.log(`Monetos: ${this.monetos}`);
+  }
+
+  getBanknotai() {
+    console.log(`Banknotai: ${this.banknotai}`);
+  }
+
+  skaiciuoti() {
+    console.log(`Popieriniai pinigai: ${this.popieriniaiPinigai}`);
+    console.log(`Metaliniai pinigai: ${this.metaliniaiPinigai}`);
+    console.log(`Viso: ${this.popieriniaiPinigai + this.metaliniaiPinigai}`);
+  }
+}
+
+// Sukurti klasės objektą
+const pinigine1 = new Pinigine1();
+
+// Pademonstruoti veikimą
+pinigine1.ideti(1);
+pinigine1.ideti(5);
+pinigine1.ideti(0.5);
+pinigine1.skaiciuoti();
+
+pinigine1.getMonetos();
+pinigine1.getBanknotai();
