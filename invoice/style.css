@@ -1,0 +1,52 @@
+body {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+}
+
+#invoice-container {
+  width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#invoice-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#invoice-number,
+#seller-info,
+#buyer-info,
+#invoice-date,
+#payment-due-date {
+  margin-bottom: 10px;
+}
+
+#invoice-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#invoice-table th,
+#invoice-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+#invoice-table th {
+  background-color: #f0f0f0;
+}
+
+#invoice-table td {
+  background-color: #fff;
+}
+
+#vat-amount,
+#total-amount {
+  font-weight: bold;
+}

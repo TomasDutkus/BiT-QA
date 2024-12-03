@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Sąskaita Faktūra</title>
+  </head>
+  <body>
+    <div id="invoice-container">
+      <h1 id="invoice-title">PVM SĄSKAITA FAKTŪRA</h1>
+      <p id="invoice-number"></p>
+      <p id="seller-info"></p>
+      <p id="buyer-info"></p>
+      <p id="invoice-date"></p>
+      <p id="payment-due-date"></p>
+      <table id="invoice-table">
+        <thead>
+          <tr>
+            <th>Prekės pavadinimas</th>
+            <th>Kiekis</th>
+            <th>Vieneto kaina</th>
+            <th>Nuolaida</th>
+            <th>Galutinė kaina</th>
+          </tr>
+        </thead>
+        <tbody id="invoice-table-body"></tbody>
+        <tfoot>
+          <tr>
+            <td colspan="4">Transportavimo išlaidos:</td>
+            <td id="transportation-cost"></td>
+          </tr>
+          <tr>
+            <td colspan="4">PVM 21%:</td>
+            <td id="vat-amount"></td>
+          </tr>
+          <tr>
+            <td colspan="4">Galutinė kaina su PVM:</td>
+            <td id="total-amount"></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </body>
+</html>
