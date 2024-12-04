@@ -13,6 +13,7 @@ fetch("https://in3.dev/inv/")
     const transportation_cost = document.getElementById("transportation-cost");
     const vatAmount = document.getElementById("vat-amount");
     const totalAmount = document.getElementById("total-amount");
+    const subtotal = document.getElementById("sub-total");
 
     invoiceContainer.style.display = "block";
 
@@ -23,16 +24,19 @@ fetch("https://in3.dev/inv/")
     invoiceDate.textContent = `Sąskaitos data: ${data.date}`;
     paymentDueDate.textContent = `Mokėjimo termino data: ${data.due_date}`;
 
-    data.items.slice(0, -1).forEach((item) => {
+    data.items.forEach((item) => {
       const row = document.createElement("tr");
-      const discountAmount = calculateDiscountAmount(item.price, item.discount);
-      const totalPrice = item.price - discountAmount;
+      const discountAmount = calculateDiscountAmount(
+        item.price,
+        item.discount
+      ).toFixed(2);
+      const totalPrice = (item.price - discountAmount).toFixed(2);
       row.innerHTML = `
         <td>${item.description}</td>
         <td>${item.quantity}</td>
         <td>${item.price}</td>
         <td>${discountAmount}</td>
-        <td>${totalPrice}</td>
+        <td>${(totalPrice * item.quantity).toFixed(2)}</td>
       `;
       invoiceTableBody.appendChild(row);
     });
@@ -47,8 +51,22 @@ fetch("https://in3.dev/inv/")
       }
     }
 
-    transportation_cost.textContent = data.shippingPrice;
-    vatAmount.textContent = data.vat_amount;
-    totalAmount.textContent = data.total_amount;
+    const totalPrice = data.items.reduce((acc, item) => {
+      const discountAmount = calculateDiscountAmount(item.price, item.discount);
+      return acc + (item.price - discountAmount) * item.quantity;
+    }, 0);
+
+    subtotal1 = totalPrice.toFixed(2);
+    subtotal.textContent = subtotal1;
+    transportation_cost1 = data.shippingPrice.toFixed(2);
+    transportation_cost.textContent = transportation_cost1;
+    vatAmount1 = (totalPrice * 0.21 + data.shippingPrice * 0.21).toFixed(2);
+    vatAmount.textContent = vatAmount1;
+    totalAmount1 =
+      totalPrice +
+      data.shippingPrice +
+      totalPrice * 0.21 +
+      data.shippingPrice * 0.21;
+    totalAmount.textContent = totalAmount1.toFixed(2);
   })
   .catch((error) => console.error(error));
