@@ -46,7 +46,23 @@ body {
   background-color: #fff;
 }
 
-#vat-amount,
 #total-amount {
   font-weight: bold;
+}
+
+#print-button {
+  background-color: #888988;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  display: block;
+  margin: auto;
+  margin-top: 10px;
+}
+
+#print-button:hover {
+  background-color: #4c5052;
 }

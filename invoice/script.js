@@ -18,7 +18,7 @@ fetch("https://in3.dev/inv/")
     invoiceContainer.style.display = "block";
 
     invoiceTitle.textContent = "PVM SĄSKAITA FAKTŪRA";
-    invoiceNumber.textContent = data.number;
+    invoiceNumber.textContent = `SĄSKAITOS NR: ${data.number}`;
     sellerInfo.textContent = `Pardavėjo duomenys: ${data.company.seller.name}, ${data.company.seller.address}, ${data.company.seller.code}, ${data.company.seller.vat}, ${data.company.seller.phone}`;
     buyerInfo.textContent = `Pirkėjo duomenys: ${data.company.buyer.name}, ${data.company.buyer.address}, ${data.company.buyer.code}, ${data.company.buyer.vat}, ${data.company.buyer.phone}`;
     invoiceDate.textContent = `Sąskaitos data: ${data.date}`;
@@ -26,21 +26,23 @@ fetch("https://in3.dev/inv/")
 
     data.items.forEach((item) => {
       const row = document.createElement("tr");
-      const discountAmount = calculateDiscountAmount(
-        item.price,
-        item.discount
-      ).toFixed(2);
-      const totalPrice = (item.price - discountAmount).toFixed(2);
+      const discountAmount = calculateDiscountAmount(item.price, item.discount);
+      const totalPrice = (item.price - discountAmount) * item.quantity;
+      const discountText =
+        item.discount.type === "percentage"
+          ? `${item.discount.value}% (-${discountAmount.toFixed(2)})`
+          : discountAmount === 0
+          ? "0"
+          : `-${discountAmount.toFixed(2)}`;
       row.innerHTML = `
         <td>${item.description}</td>
         <td>${item.quantity}</td>
         <td>${item.price}</td>
-        <td>${discountAmount}</td>
-        <td>${(totalPrice * item.quantity).toFixed(2)}</td>
+        <td>${discountText}</td>
+        <td>${totalPrice.toFixed(2)}</td>
       `;
       invoiceTableBody.appendChild(row);
     });
-
     function calculateDiscountAmount(price, discount) {
       if (discount.type === "fixed") {
         return discount.value;
@@ -68,5 +70,21 @@ fetch("https://in3.dev/inv/")
       totalPrice * 0.21 +
       data.shippingPrice * 0.21;
     totalAmount.textContent = totalAmount1.toFixed(2);
-  })
-  .catch((error) => console.error(error));
+  });
+const printButton = document.getElementById("print-button");
+
+printButton.addEventListener("click", () => {
+  const invoiceData = {
+    /* your invoice data here */
+  };
+  const invoiceHtml = generateInvoiceHtml(invoiceData);
+  const printWindow = window.open("", "_blank");
+  printWindow.document.write(invoiceHtml);
+  printWindow.print();
+  printWindow.close();
+});
+
+function generateInvoiceHtml(invoiceData) {
+  // generate the HTML for the invoice based on the invoice data
+  // ...
+}
