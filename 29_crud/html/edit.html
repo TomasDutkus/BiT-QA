@@ -12,7 +12,7 @@
                 type="text"
                 class="form-control"
                 name="title"
-                value="{{title}}"
+                value="{{#if (isdefined oldData.title)}}{{oldData.title}}{{else}}{{title}}{{/if}}"
               />
             </div>
             <div class="mb-3">
@@ -21,7 +21,7 @@
                 type="text"
                 class="form-control"
                 name="author"
-                value="{{author}}"
+                value="{{#if (isdefined oldData.author)}}{{oldData.author}}{{else}}{{author}}{{/if}}"
               />
             </div>
             <div class="mb-3">
@@ -30,7 +30,7 @@
                 type="text"
                 class="form-control"
                 name="year"
-                value="{{year}}"
+                value="{{#if (isdefined oldData.year)}}{{oldData.year}}{{else}}{{year}}{{/if}}"
               />
             </div>
             <div class="mb-3">
@@ -39,7 +39,7 @@
                 type="text"
                 class="form-control"
                 name="genre"
-                value="{{genre}}"
+                value="{{#if (isdefined oldData.genre)}}{{oldData.genre}}{{else}}{{genre}}{{/if}}"
               />
             </div>
             <div class="mb-3">
@@ -48,7 +48,7 @@
                 type="text"
                 class="form-control"
                 name="isbn"
-                value="{{isbn}}"
+                value="{{#if (isdefined oldData.isbn)}}{{oldData.isbn}}{{else}}{{isbn}}{{/if}}"
               />
             </div>
             <div class="mb-3">
@@ -57,7 +57,7 @@
                 type="text"
                 class="form-control"
                 name="pages"
-                value="{{pages}}"
+                value="{{#if (isdefined oldData.pages)}}{{oldData.pages}}{{else}}{{pages}}{{/if}}"
               />
             </div>
             <button type="submit" class="btn btn-outline-primary">

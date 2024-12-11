@@ -11987,6 +11987,15 @@ textarea.form-control-lg {
 body {
   background-color: #c1c1cc;
 }
-body nav {
+
+nav {
   background-color: skyblue;
+}
+
+.big {
+  font-size: 60px;
+}
+
+.mid {
+  font-size: 40px;
 }
