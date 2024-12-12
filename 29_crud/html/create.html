@@ -5,7 +5,7 @@
         <h2 class="card-header">Nauja knyga</h2>
         <div class="card-body">
           <h5 class="card-title">Pridėkite naują knygą</h5>
-          <form action="{{domain}}store" method="post">
+          <form action="{{domain}}store" method="post" enctype="multipart/form-data">
             <div class="mb-3">
               <label class="form-label">Pavadinimas</label>
               <input type="text" class="form-control" name="title" value="{{#if oldData.title}}{{oldData.title}}{{/if}}"/>
@@ -30,6 +30,13 @@
               <label class="form-label">Puslapiai</label>
               <input type="text" class="form-control" name="pages" value="{{#if oldData.pages}}{{oldData.pages}}{{/if}}"/>
             </div>
+            <div class="mb-3">
+              <label class="form-label">Viršelio nuotrauka</label>
+              <div class="input-group">
+                  <input type="file" name="cover" class="form-control" id="inputGroupFile02">
+                  <label class="input-group-text" for="inputGroupFile02">Įkelti</label>
+              </div>
+          </div>
             <button type="submit" class="btn btn-outline-primary">Pridėti</button>
             <a href="{{domain}}" class="btn btn-outline-secondary">Atšaukti</a>
           </form>
