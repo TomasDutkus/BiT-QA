@@ -20,6 +20,13 @@
             {{#books}}
             <li class="list-group-item books">
               <div class="book">
+                <div class="cover">
+                  {{#if cover}}
+                  <img src="{{domain}}images/{{cover}}" alt="{{title}}">
+                  {{else}}
+                  <img src="{{domain}}images/no-image.png" alt="{{title}}">
+                  {{/if}}
+              </div>
                 <div class="title">{{title}}</div>
                 <div class="author">{{author}}</div>
               </div>

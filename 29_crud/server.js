@@ -15,7 +15,10 @@ const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, 'public/images/');
   },  filename: (req, file, cb) => {
-    cb(null, file.originalname);
+    const randomPrefix = uuidv4();
+    const extension = file.originalname.split('.').pop();
+    const filename = `${randomPrefix}.${extension}`;
+    cb(null, filename);
   }
 });
 
@@ -247,6 +250,7 @@ app.post("/store", upload.single('cover'),(req, res) => {
     res.status(422).redirect(domain + 'create');
     return;
   }
+  const uploadFileName = req.file?.filename; // req.file egzistuoja tik jei yra failas
 
   const book = {
     id,
@@ -256,6 +260,7 @@ app.post("/store", upload.single('cover'),(req, res) => {
     genre,
     isbn,
     pages,
+    cover: uploadFileName
   };
   let data = fs.readFileSync("./data/books.json", "utf8");
   data = JSON.parse(data);
@@ -282,7 +287,23 @@ app.post('/update/:id', (req, res) => {
     res.status(422).redirect(domain + 'edit/' + id);
     return;
   }
-  const newBook = { id: oldBook.id, title, author, year, genre, isbn, pages };
+
+  const uploadFileName = req.file?.filename;
+  let cover;
+  if (!uploadFileName) {
+    cover = oldBook.cover;
+  } else {
+    cover = uploadFileName;
+  }
+  if (req.body.delete_cover) {
+    cover = undefined; // delete cover entry
+  }
+ 
+  if (req.body.delete_cover || uploadFileName) {
+    fs.unlinkSync(`public/images/${oldBook.cover}`); // delete old file
+  }
+
+  const newBook = { id: oldBook.id, title, author, year, genre, isbn, pages, cover };
   books = books.map(book => book.id === id ? newBook : book);
   books = JSON.stringify(books);
   fs.writeFileSync('./data/books.json', books);
