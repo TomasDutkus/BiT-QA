@@ -16,6 +16,10 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+h1 {
+    margin-bottom: 20px;
+}
+
 .board {
     width: 450px;
     height: 450px;
