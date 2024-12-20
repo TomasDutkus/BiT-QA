@@ -1,50 +1,75 @@
+const cell = document.querySelectorAll('.cell');
+const newGame = document.querySelector('.new');
+const whoGoes = document.getElementById('whoGoes');
+const whoWon = document.getElementById('whoWon');
+
 let step = '';
 let winner = '';
-let counter = 0;
+let counter = '';
 
-const cell = document.querySelectorAll('.cell');
+const winCombo = [
+    [0,1,2],
+    [3,4,5],
+    [6,7,8],
+    [0,3,6],
+    [1,4,7],
+    [2,5,8],
+    [0,4,8],
+    [2,4,6]
+];
 
-const whoGO = document.getElementById('whoGo');
-
-const winComb = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6]
-]
-
-const who = () => {
-    if (step == 'cross') {
+const who = _ => {
+    if(step == 'cross') {
         step = 'circle';
-        whoGO.innerText = 'Nuliukai';
+        whoGoes.innerText = 'Nuliukai';
     } else {
         step = 'cross';
-        whoGO.innerText = 'Kryžiukai';
+        whoGoes.innerText = 'Kryžiukai';
     }
-}
+};
 who();
 
-cell.forEach((item) => {
-    item.addEventListener('click', () => {
+const crossWon = _ => {
+    for (let i = 0; i < winCombo.length; i++) {
+        if (cell[winCombo[i][0]].classList.contains('cross') && cell[winCombo[i][1]].classList.contains('cross') && cell[winCombo[i][2]].classList.contains('cross')) {
+            cell[winCombo[i][0]].classList.add('winColor');
+            cell[winCombo[i][1]].classList.add('winColor');
+            cell[winCombo[i][2]].classList.add('winColor');
+            whoWon.innerText = ' Kryžiukai!';
+        }
+    }
+};
+const circleWon = _ => {
+    for (let i = 0; i < winCombo.length; i++) {
+        if (cell[winCombo[i][0]].classList.contains('circle') && cell[winCombo[i][1]].classList.contains('circle') && cell[winCombo[i][2]].classList.contains('circle')) {
+            cell[winCombo[i][0]].classList.add('winColor');
+            cell[winCombo[i][1]].classList.add('winColor');
+            cell[winCombo[i][2]].classList.add('winColor');
+            whoWon.innerText = ' Nuliukai!';
+        }
+    }
+};
+
+cell.forEach(item => {
+    item.addEventListener('click', _ => {
         if (!item.classList.contains('circle') && !item.classList.contains('cross')) {
             item.classList.add(step);
-
             if (step == 'cross') {
                 item.innerText = 'X';
-            }
-            if (step == 'circle') {
+            } else if (step == 'circle') {
                 item.innerText = 'O';
             }
-
             who();
+            crossWon();
+            circleWon();
         }
     })
-})
+});
 
-const crossWin = () => {
-    
-}
+newGame.addEventListener('click', _ => {
+    cell.forEach(item => {
+        item.classList.remove('circle', 'cross', 'winColor');
+        item.innerText = ''; 
+        whoWon.innerText = '';              
+    })
+});
