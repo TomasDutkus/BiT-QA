@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Registration</title>
+</head>
+<body>
+    <form id="registracija">
+        <h2>Registracija</h2>
+        <div class="form-group">
+          <label for="vardas">Vardas:</label>
+          <input type="text" id="vardas">
+          <span class="error" id="vardas-error"></span>
+        </div>
+        <div class="form-group">
+          <label for="elpastas">El. paštas:</label>
+          <input type="text" id="elpastas">
+          <span class="error" id="elpastas-error"></span>
+        </div>
+        <div class="form-group">
+          <label for="amzius">Amžius:</label>
+          <input type="number" id="amzius">
+          <span class="error" id="amzius-error"></span>
+        </div>
+        <div class="form-group">
+          <label for="telefono-numeris">Telefono numeris:</label>
+          <input type="tel" id="telefono-numeris">
+          <span class="error" id="telefono-numeris-error"></span>
+        </div>
+        <div class="form-group">
+          <label for="slaptažodis">Slaptažodis:</label>
+          <input type="password" id="slaptažodis">
+          <span class="error" id="slaptažodis-error"></span>
+        </div>
+        <div class="form-group">
+          <label for="pakartotinas-slaptažodis">Pakartotinas slaptažodis:</label>
+          <input type="password" id="pakartotinas-slaptažodis">
+          <span class="error" id="pakartotinas-slaptažodis-error"></span>
+        </div>
+        <button type="submit">Registruotis</button>
+        <div id="success-message">
+          </div>
+      </form>
+</body>
+</html>
