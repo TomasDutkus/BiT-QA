@@ -55,7 +55,7 @@ app.get("/users/:id", async (req, res) => {
     try {
         const id = req.params.id;
         const results = await pool.query(`SELECT * FROM users WHERE id=${id}`);
-        res.status(200).json(results.rows);
+        res.status(200).json(results.rows[0]);
     } catch (error) {
         res.status(400).json({
             error: 'error'
@@ -68,13 +68,39 @@ app.post("/users", async (req, res) => {
     try {
         const { id, username, password } = req.body;
         const results = await pool.query(`INSERT INTO users (id, username, password) VALUES (${id}, '${username}', '${password}') RETURNING *`);
-        res.status(201).json(results.rows);
+        res.status(201).json(results.rows[0]);
     } catch (error) {
         res.status(400).json({
             error: 'error'
         });
     }
 })
+
+// PUT /users/:id - route redaguos user
+app.put('/users/:id', async(req, res)=> {
+    try{
+        const id = req.params.id;
+        const {username, password} = req.body;
+        const results = await pool.query(`update users set username = '${username}', "password" = '${password}' where id = ${id} returning *`);
+        res.status(200).json(results.rows[0]);
+    }
+    catch(err){
+        res.status(400).json({error: 'error'});
+    }
+});
+
+// DELETE /users/:id - route istrins user
+app.delete('/users/:id', async(req, res)=> {
+    try{
+        const id = req.params.id;
+        const results = await pool.query(`delete from users where id = ${id} returning *`);
+        res.status(200).json({message: "User deleted successfully"});
+    }
+    catch(err){
+        res.status(400).json({error: 'error'});
+    }
+});
+
 
 const port = 3000;
 app.listen(port, () => {
