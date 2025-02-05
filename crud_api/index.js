@@ -21,19 +21,6 @@ app.use(express.json()); // requestam ir responsam
 
 // req - request
 // res - response
-// localhost:3000/products
-app.get("/products", async (req, res) => {
-    // neapibrezta klaida 400 kodas, jeigu nepavyksta prisijungti prie duombazes 500
-    try {
-        res.status(200).json({
-            message: "Products fetched successfully"
-        });
-    } catch (error) {
-        res.status(400).json({
-            error: 'error'
-        });
-    }
-})
 
 // GET /users - route grazins visus users
 app.get("/users", async (req, res) => {
@@ -101,6 +88,68 @@ app.delete('/users/:id', async(req, res)=> {
     }
 });
 
+// GET /products - route grazins visus produktus
+app.get("/products", async (req, res) => {
+    try {
+        const results = await pool.query("SELECT * FROM products");
+        res.status(200).json(results.rows);
+    } catch (error) {
+        res.status(400).json({
+            error: 'error'
+        });
+    }
+})
+
+// GET /products/:id - route grazins viena produkta
+app.get("/products/:id", async (req, res) => {
+    try {
+        const id = req.params.id;
+        const results = await pool.query(`SELECT * FROM products WHERE id=${id}`);
+        res.status(200).json(results.rows[0]);
+    } catch (error) {
+        res.status(400).json({
+            error: 'error'
+        });
+    }
+})
+
+// POST /products - route sukurs produkta
+app.post("/products", async (req, res) => {
+    try {
+        const { id, title, description, price } = req.body;
+        const results = await pool.query(`INSERT INTO products (id, title, description, price) VALUES (${id}, '${title}', '${description}', '${price}') RETURNING *`);
+        res.status(201).json(results.rows[0]);
+    } catch (error) {
+        res.status(400).json({
+            error: 'error'
+        });
+    }
+})
+
+// PUT /products/:id - route redaguos produkta
+app.put('/products/:id', async(req, res)=> {
+    try{
+        const id = req.params.id;
+        const {title, description, price} = req.body;
+        const results = await pool.query(`update products set title = '${title}', description = '${description}', price = '${price}' where id = ${id} returning *`);
+        res.status(200).json(results.rows[0]);
+    }
+    catch(err){
+        res.status(400).json({error: 'error'});
+    }
+});
+
+// DELETE /products/:id - route istrins produkta
+app.delete('/products/:id', async(req, res)=> {
+    try{
+        const id = req.params.id;
+        const results = await pool.query(`delete from products where id = ${id} returning *`);
+        res.status(200).json({message: "Product deleted successfully"});
+    }
+    catch(err){
+        res.status(400).json({error: 'error'});
+    }
+});
 
 const port = 3000;
 app.listen(port, () => {
