@@ -116,8 +116,8 @@ app.get("/products/:id", async (req, res) => {
 // POST /products - route sukurs produkta
 app.post("/products", async (req, res) => {
     try {
-        const { id, title, description, price } = req.body;
-        const results = await pool.query(`INSERT INTO products (id, title, description, price) VALUES (${id}, '${title}', '${description}', '${price}') RETURNING *`);
+        const { title, description, price } = req.body;
+        const results = await pool.query(`INSERT INTO products (title, description, price) VALUES ('${title}', '${description}', ${price}) RETURNING *`);
         res.status(201).json(results.rows[0]);
     } catch (error) {
         res.status(400).json({
@@ -131,7 +131,7 @@ app.put('/products/:id', async(req, res)=> {
     try{
         const id = req.params.id;
         const {title, description, price} = req.body;
-        const results = await pool.query(`update products set title = '${title}', description = '${description}', price = '${price}' where id = ${id} returning *`);
+        const results = await pool.query(`update products set title = '${title}', description = '${description}', price = ${price} where id = ${id} returning *`);
         res.status(200).json(results.rows[0]);
     }
     catch(err){
