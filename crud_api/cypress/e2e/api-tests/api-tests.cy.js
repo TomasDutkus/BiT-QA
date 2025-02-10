@@ -66,16 +66,14 @@ describe('CRUD_API', () => {
     
     it('/products vieno produkto bendras testas', () => {
 
-        cy.request("GET", "localhost:3000/products/2").then((response) => {
+        cy.request("GET", "localhost:3000/products/1").then((response) => {
             expect(response.status).to.be.eq(200);
-            expect(response.body).to.have.property('id', 2);
+            expect(response.body).to.have.property('id', 1);
             expect(response.body).to.have.property('title', 'test');
             cy.log(response.body.id);
             cy.log(response.body.title);
            // expect(response.body).length.to.be.greaterThan(0);
             cy.log(response.body);
-    
-        cy.log('pasiruosiau testui')
     });
     });
     it('/products create bendras testas', () => {
@@ -94,18 +92,32 @@ describe('CRUD_API', () => {
             cy.log(response.body.price);
             cy.log(response.body);
         });
-    
-        cy.log('pasiruosiau testui')
     });
     
     it('/products update bendras testas', () => {
-    
-        cy.log('pasiruosiau testui')
+
+        cy.request('PUT', 'localhost:3000/products/1', {
+            title: 'test',
+            description: 'test',
+            price: 100
+        }).then((response) => {
+            expect(response.status).to.be.eq(200);
+            expect(response.body).to.have.property('title', 'test');
+            expect(response.body).to.have.property('description', 'test');
+            expect(response.body).to.have.property('price', 100);
+            cy.log(response.body.title);
+            cy.log(response.body.description);
+            cy.log(response.body.price);
+            cy.log(response.body);
+        });
     });
     
     it('/products delete bendras testas', () => {
-    
-        cy.log('pasiruosiau testui')
+
+        cy.request('DELETE', 'localhost:3000/products/2').then((response) => {
+            expect(response.status).to.be.eq(200);
+            cy.log(response.body);
+        });
     });
       });    
     
