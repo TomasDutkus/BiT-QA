@@ -60,3 +60,18 @@ it('Uzeina i svetaine ToDoList', () => {
     cy.getCookie('test3').should('exist')
     //sausainiukas cypress aplinkoje egzistuoja tik tam testui!
 })
+
+//Sesija - serverio atminties vieta, kur svetainė gali išsaugoti informaciją
+it('Testas su sesija', () => {
+    cy.session('sesija', () => {
+        cy.visit('https://todolist.james.am/#/')
+        cy.get('input.new-todo').type('Testas{enter}')
+        cy.setCookie('test', 'test')
+    })
+    cy.visit('https://todolist.james.am/#/')
+})
+
+it('Testas be sesijos', () => {
+        cy.visit('https://todolist.james.am/#/')
+        cy.get('input.new-todo').type('Testas{enter}')
+})
