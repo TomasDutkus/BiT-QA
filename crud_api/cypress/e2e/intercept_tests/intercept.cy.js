@@ -14,7 +14,7 @@ it('Request, intercept, visit', () => {
     cy.visit('https://todolist.james.am/#/') // tiesiog uzeinu i svetaine
  
     //perimti
-    //sis metodas dazniau naudojamas API
+    //sis metodas dazniau naudojamas API, kai API kviecia narsykle!!!
 
     //pagal musu pateiktus duomenis, kreipiames i url, mes ja perimame ir ja galime sumanipuliuoti
     cy.intercept("GET", "https://jsonplaceholder.typicode.com/posts/104");  // sita nuoroda grazina 404/ post kurio id=104
