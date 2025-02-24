@@ -28,7 +28,8 @@ const user = {
 console.log(user);
 
 const product = {
-    "name": faker.commerce.productName(),
+    "title": faker.commerce.product(),
+    "description": faker.commerce.productDescription(),
     "price": faker.commerce.price(),
     "material": faker.commerce.productMaterial(),
 }
